@@ -1,6 +1,6 @@
 #!/bin/bash
 echo "Updating packages..."
-pacman -Syd
+pacman -Syu
 
 echo "Installing new packages..."
 pacman -S --noconfirm --needed git zsh alacritty stow firefox fastfetch ttf-jetbrains-mono-nerd
@@ -14,7 +14,7 @@ git clone https://aur.archlinux.org/yay.git
 cd yay
 makepkg -si
 cd ..
-rm yay
+rm yay -r
 
 echo "Install AUR packages"
 yay -S visual-studio-code-bin 
