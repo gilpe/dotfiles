@@ -1,28 +1,11 @@
-# Dotfiles
-Linux configuration dot files.
+# 🗄️Dotfiles
+Configuration backup for my linux workstations.
 
-### Required packages:
+> [!WARNING]
+Please, remember that my base system and preferences may not match with yours. The installation script, the chosen packages, and the configuration files included in this repo, are based on a GNOMEd-Arch setup that work for me.
+
+## 🚀Run
+
+```console
+wget -O- https://raw.githubusercontent.com/gilpe/dotfiles/main/install.sh | sudo bash
 ```
-sudo pacman -Syd
-sudo pacman -S neofetch
-sudo pacman -S xorg 
-sudo pacman -S xorg-xinit
-sudo pacman -S xf86-video-intel
-sudo pacman -S virtualbox-guest-utils
-sudo pacman -S i3
-sudo pacman -S alacritty
-sudo pacman -S nano
-sudo pacman -S ttf-jetbrains-mono-nerd
-sudo pacman -S firefox
-sudo pacman -S github-cli
-gh auth login
-sudo pacman -S stow
-sudo nano etc/X11/xinit/xinitrc 
-startx
-sudo pacman -Sy --needed git base-devel
-git clone https://aur.archlinux.org/yay.git
-cd yay
-makepkg -si
-yay -S picom
-```
-En xinitrc, comment twm line and exec xterm -geometry also
