@@ -1,12 +1,12 @@
 #!/bin/bash
 
-echo "__________________________________________________Updating base system"
+echo -e "\n UPDATING BASE \n"
 sudo pacman -Syu
 
-echo "__________________________________________________Installing new packages"
+echo -e "\n INSTALLING PRE-REQS \n"
 sudo pacman -S --noconfirm --needed git
 
-echo "__________________________________________________Installing AUR helper"
+echo -e "\n INSTALLING AUR HELPER \n"
 cd ~/Downloads
 git clone https://aur.archlinux.org/yay.git
 cd ~/Downloads/yay
@@ -14,13 +14,13 @@ makepkg -si
 cd ~
 rm ~/Downloads/yay -fr
 
-echo "__________________________________________________Install AUR packages"
+echo -e "\n INSTALLING AUR PACKAGES \n"
 yay -S --noconfirm --needed zsh alacritty stow visual-studio-code-bin firefox fastfetch ttf-jetbrains-mono-nerd 
 
-echo "__________________________________________________Setting new shell"
+echo -e "\n CHANGING SHELL \n"
 chsh -s /bin/zsh
 
-echo "__________________________________________________Stowing dotfiles"
+echo -e "\n STOWING FILES \n"
 git clone https://github.com/gilpe/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 stow .
