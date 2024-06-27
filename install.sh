@@ -8,8 +8,10 @@ sudo pacman -S --noconfirm --needed git
 
 echo -e "\n INSTALLING AUR HELPER \n"
 git clone https://aur.archlinux.org/yay.git ~/.yay
-cd ~/.yay && makepkg -si
-cd ~ && rm ~/.yay -fr
+cd ~/.yay 
+makepkg -si --noconfirm
+cd ~ 
+rm ~/.yay -fr
 
 echo -e "\n INSTALLING AUR PACKAGES \n"
 yay -S --noconfirm --needed zsh alacritty stow visual-studio-code-bin firefox fastfetch ttf-jetbrains-mono-nerd 
