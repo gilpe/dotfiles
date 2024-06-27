@@ -7,5 +7,5 @@ Please, remember that my base system and preferences may not match with yours. T
 ## 🚀 Run
 
 ```console
-wget -O - https://raw.githubusercontent.com/gilpe/dotfiles/main/install.sh | sudo bash
+wget -O - https://raw.githubusercontent.com/gilpe/dotfiles/main/install.sh | bash
 ```
