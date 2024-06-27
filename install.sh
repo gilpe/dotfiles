@@ -4,7 +4,7 @@ echo -e "\n UPDATING BASE \n"
 sudo pacman -Syu
 
 echo -e "\n INSTALLING PRE-REQS \n"
-sudo pacman -S --noconfirm --needed git
+sudo pacman -S --noconfirm --needed git zsh stow firefox fastfetch ttf-jetbrains-mono-nerd 
 
 echo -e "\n INSTALLING AUR HELPER \n"
 git clone https://aur.archlinux.org/yay.git ~/.yay
@@ -13,11 +13,11 @@ makepkg -si --noconfirm
 cd ~ 
 rm ~/.yay -fr
 
-echo -e "\n INSTALLING AUR PACKAGES \n"
-yay -S --noconfirm --needed zsh alacritty stow visual-studio-code-bin firefox fastfetch ttf-jetbrains-mono-nerd 
+#echo -e "\n INSTALLING AUR PACKAGES \n"
+#yay -S --noconfirm --needed visual-studio-code-bin
 
 echo -e "\n CHANGING SHELL \n"
-sudo chsh -s /bin/zsh
+chsh -s /bin/zsh
 
 echo -e "\n STOWING FILES \n"
 git clone https://github.com/gilpe/dotfiles.git ~/.dotfiles
