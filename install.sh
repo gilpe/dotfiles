@@ -1,34 +1,28 @@
 #!/bin/bash
 
-echo "Updating base system..."
-pacman -Syu
-read -p "Hit enter to continue..."
+echo "__________________________________________________Updating base system"
+sudo pacman -Syu
 
-echo "Installing new packages..."
-pacman -S --noconfirm --needed git
-read -p "Hit enter to continue..."
+echo "__________________________________________________Installing new packages"
+sudo pacman -S --noconfirm --needed git
 
-echo "Installing AUR helper..."
+echo "__________________________________________________Installing AUR helper"
 cd ~/Downloads
 git clone https://aur.archlinux.org/yay.git
 cd ~/Downloads/yay
 makepkg -si
 cd ~
 rm ~/Downloads/yay -fr
-read -p "Hit enter to continue..."
 
-echo "Install AUR packages..."
+echo "__________________________________________________Install AUR packages"
 yay -S --noconfirm --needed zsh alacritty stow visual-studio-code-bin firefox fastfetch ttf-jetbrains-mono-nerd 
-read -p "Hit enter to continue..." 
 
-echo "Setting new shell..."
+echo "__________________________________________________Setting new shell"
 chsh -s /bin/zsh
-read -p "Hit enter to continue..."
 
-echo "Stowing dotfiles..."
+echo "__________________________________________________Stowing dotfiles"
 git clone https://github.com/gilpe/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 stow .
-read -p "Hit enter to continue..."
 
 exit
