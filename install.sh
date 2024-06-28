@@ -13,8 +13,8 @@ makepkg -si --noconfirm
 cd ~ 
 rm ~/.yay -fr
 
-#echo -e "\n INSTALLING AUR PACKAGES \n"
-#yay -S --noconfirm --needed visual-studio-code-bin
+echo -e "\n INSTALLING AUR PACKAGES \n"
+yay -S --noconfirm --needed visual-studio-code-bin godot-mono-bin
 
 echo -e "\n CHANGING SHELL \n"
 chsh -s /bin/zsh
