@@ -56,13 +56,7 @@ semantic_escape_chars = ",│`|:\"' ()[]{}<>"
 program = "/bin/zsh"
 
 [window]
-decorations = "None"
 dynamic_title = true
-startup_mode = "Windowed"
-
-[window.dimensions]
-columns = 160
-lines = 80
 
 [window.padding]
 x = 4
