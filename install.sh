@@ -8,9 +8,9 @@ sudo pacman -S --noconfirm --needed git zsh alacritty stow firefox fastfetch ttf
 
 echo -e "\n INSTALLING AUR HELPER \n"
 git clone https://aur.archlinux.org/yay.git ~/.yay
-cd ~/.yay 
+cd ~/.yay
 makepkg -si --noconfirm
-cd ~ 
+cd ~
 rm ~/.yay -fr
 
 echo -e "\n INSTALLING AUR PACKAGES \n"

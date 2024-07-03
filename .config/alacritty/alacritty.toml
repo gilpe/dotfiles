@@ -57,6 +57,8 @@ program = "/bin/zsh"
 
 [window]
 dynamic_title = true
+startup_mode = "Maximized"
+decorations = "None"
 
 [window.padding]
 x = 4
