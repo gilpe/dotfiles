@@ -4,7 +4,7 @@ echo -e "\n UPDATING BASE \n"
 sudo pacman -Syu
 
 echo -e "\n INSTALLING PRE-REQS \n"
-sudo pacman -S --noconfirm --needed git zsh alacritty stow firefox fastfetch ttf-jetbrains-mono-nerd zoxide
+sudo pacman -S --noconfirm --needed git zsh alacritty stow firefox fastfetch ttf-jetbrains-mono-nerd zoxide github-cli
 
 echo -e "\n INSTALLING AUR HELPER \n"
 git clone https://aur.archlinux.org/yay.git ~/.yay
