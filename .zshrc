@@ -58,5 +58,5 @@ alias c='clear'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 export GODOT="/home/gilpe/.config/godotenv/godot/bin/godot"
-export PATH="$PATH:/home/gilpe/.dotnet/tools:$PATH"
-export PATH="$PATH:/home/gilpe/.config/godotenv/godot/bin:$PATH"
+export PATH="/home/gilpe/.dotnet/tools:$PATH"
+export PATH="/home/gilpe/.config/godotenv/godot/bin:$PATH"

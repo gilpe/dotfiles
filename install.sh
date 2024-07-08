@@ -14,7 +14,7 @@ cd ~
 rm ~/.yay -fr
 
 echo -e "\n INSTALLING AUR PACKAGES \n"
-yay -S --noconfirm --needed visual-studio-code-bin oh-my-posh fzf
+yay -S --noconfirm --needed visual-studio-code-bin oh-my-posh fzf nautilus-bluetooth
 
 echo -e "\n CHANGING SHELL \n"
 chsh -s /bin/zsh
