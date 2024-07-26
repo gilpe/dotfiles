@@ -2,6 +2,7 @@
 
 version = 2
 final_space = true
+auto-upgrade = true
 console_title_template = '{{ .Shell }} in {{ .Folder }}'
 
 [[blocks]]
