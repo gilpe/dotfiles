@@ -27,16 +27,13 @@
 	"telemetry.telemetryLevel": "off",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.mouseWheelZoom": true,
-	"vscode_custom_css.imports": [
-		"file:///home/gilpe/.dotfiles/.config/Code/User/custom.css"
-	],
 	"window.commandCenter": false,
 	"window.customTitleBarVisibility": "auto",
 	"window.restoreFullscreen": true,
 	"window.title": "${activeEditorMedium} ${dirty}",
 	"window.titleBarStyle": "custom",
 	"window.zoomLevel": 0.2,
-	"workbench.activityBar.location": "top",
+	"workbench.activityBar.location": "default",
 	"workbench.colorTheme": "One Dark Pro Darker",
 	"workbench.editor.enablePreviewFromQuickOpen": false,
 	"workbench.editor.showTabs": "none",
