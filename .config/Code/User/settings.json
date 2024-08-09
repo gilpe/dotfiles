@@ -19,12 +19,17 @@
 	"explorer.compactFolders": false,
 	"files.autoSave": "onFocusChange",
 	"git.autofetch": true,
+	"git.confirmSync": false,
+	"git.enableSmartCommit": true,
 	"godot.csharp.executablePath": "${env:GODOT}",
 	"oneDarkPro.bold": true,
 	"symbols.hidesExplorerArrows": true,
 	"telemetry.telemetryLevel": "off",
 	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.mouseWheelZoom": true,
+	"vscode_custom_css.imports": [
+		"file:///home/gilpe/.dotfiles/.config/Code/User/custom.css"
+	],
 	"window.commandCenter": false,
 	"window.customTitleBarVisibility": "auto",
 	"window.restoreFullscreen": true,
@@ -37,8 +42,5 @@
 	"workbench.editor.showTabs": "none",
 	"workbench.iconTheme": "symbols",
 	"workbench.layoutControl.enabled": false,
-	"workbench.productIconTheme": "fluent-icons",
-	"vscode_custom_css.imports": [],
-	"git.enableSmartCommit": true,
-	"git.confirmSync": false
+	"workbench.productIconTheme": "fluent-icons"
 }
