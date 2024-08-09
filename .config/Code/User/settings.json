@@ -38,5 +38,6 @@
 	"workbench.iconTheme": "symbols",
 	"workbench.layoutControl.enabled": false,
 	"workbench.productIconTheme": "fluent-icons",
-	"vscode_custom_css.imports": []
+	"vscode_custom_css.imports": [],
+	"git.enableSmartCommit": true
 }
