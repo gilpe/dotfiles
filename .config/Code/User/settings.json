@@ -25,7 +25,6 @@
 	"oneDarkPro.bold": true,
 	"symbols.hidesExplorerArrows": true,
 	"telemetry.telemetryLevel": "off",
-	"terminal.integrated.fontSize": 14,
 	"terminal.integrated.mouseWheelZoom": true,
 	"window.commandCenter": false,
 	"window.customTitleBarVisibility": "auto",
@@ -39,5 +38,10 @@
 	"workbench.editor.showTabs": "none",
 	"workbench.iconTheme": "symbols",
 	"workbench.layoutControl.enabled": false,
-	"workbench.productIconTheme": "fluent-icons"
+	"workbench.productIconTheme": "fluent-icons",
+	"debug.console.fontFamily": "JetBrainsMono NF",
+	"editor.inlineSuggest.fontFamily": "JetBrainsMono NF",
+	"editor.inlayHints.fontFamily": "JetBrainsMono NF",
+	"terminal.integrated.fontFamily": "JetBrainsMono NF",
+	"editor.experimentalInlineEdit.fontFamily": "JetBrainsMono NF"
 }
