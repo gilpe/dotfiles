@@ -44,5 +44,6 @@
 	"workbench.editor.showTabs": "multiple",
 	"workbench.iconTheme": "symbols",
 	"workbench.layoutControl.enabled": false,
-	"workbench.productIconTheme": "fluent-icons"
+	"workbench.productIconTheme": "fluent-icons",
+	"editor.stickyScroll.enabled": false
 }
