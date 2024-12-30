@@ -42,7 +42,7 @@ hide_when_typing = true
 
 [[mouse.bindings]]
 action = "PasteSelection"
-mouse = "Middle"
+mouse = "Right"
 
 [selection]
 semantic_escape_chars = ",│`|:\"' ()[]{}<>"
