@@ -1,29 +1,43 @@
 #!/bin/bash
 
-echo -e "\n UPDATING BASE \n"
+echo -e "\n ==>  UPDATING BASE \n"
 sudo pacman -Syu
 
-echo -e "\n INSTALLING PRE-REQS \n"
-sudo pacman -S --noconfirm --needed git zsh alacritty stow firefox dotnet-runtime dotnet-sdk fastfetch ttf-jetbrains-mono-nerd zoxide github-cli
-
-echo -e "\n INSTALLING AUR HELPER \n"
+echo -e "\n ==> INSTALLING DEPENDENCIES \n"
+#Base
+sudo pacman -S --noconfirm --needed git stow dotnet-sdk
+#AUR helper
 git clone https://aur.archlinux.org/yay.git ~/.yay
 cd ~/.yay
 makepkg -si --noconfirm
 cd ~
 rm ~/.yay -fr
+#VBox 
+#sudo pacman -S --noconfirm --needed virutalbox-guest-utils foot
 
-echo -e "\n INSTALLING AUR PACKAGES \n"
-yay -S --noconfirm --needed visual-studio-code-bin oh-my-posh fzf nautilus-bluetooth
+echo -e "\n ==> INSTALLING PACKAGES \n"
+# terminal
+sudo pacman -S --noconfirm --needed zsh stow fastfetch ghostty yazi zoxide btop
+yay -S --noconfirm --needed oh-my-posh fzf
+# Windows manager
+sudo pacman -S --noconfirm --needed hyprland polkit-kde-agent qt5-wayland qt6-wayland xdg-desktop-portal-hyprland waybar dunst grim slurp wofi
+# Development
+sudo pacman -S --noconfirm --needed git neovim dotnet-runtime github-cli
+dotnet tool install --global Chickensoft.GodotEnv
+yay -S --noconfirm --needed rider
+# Fonts
+sudo pacman -S --noconfirm --needed ttf-jetbrains-mono-nerd
+# Utils
+sudo pacman -S --noconfirm --needed firefox obsidian
 
-echo -e "\n CHANGING SHELL \n"
+echo -e "\n ==> CHANGING SHELL \n"
 chsh -s /bin/zsh
 
-echo -e "\n STOWING FILES \n"
+echo -e "\n ==> STOWING DOTFILES \n"
 git clone https://github.com/gilpe/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 stow .
 
-dotnet tool install --global Chickensoft.GodotEnv
+echo -e "\n ==>  EOF \n"
 
 exit
