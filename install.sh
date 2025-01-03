@@ -17,8 +17,8 @@ rm ~/.yay -fr
 
 echo -e "\n ==> INSTALLING PACKAGES \n"
 # terminal
-sudo pacman -S --noconfirm --needed zsh stow fastfetch ghostty yazi zoxide btop
-yay -S --noconfirm --needed oh-my-posh fzf
+sudo pacman -S --noconfirm --needed zsh stow fastfetch ghostty yazi zoxide fzf btop
+yay -S --noconfirm --needed oh-my-posh
 # Windows manager
 sudo pacman -S --noconfirm --needed hyprland polkit-kde-agent qt5-wayland qt6-wayland xdg-desktop-portal-hyprland waybar dunst grim slurp wofi
 # Development
@@ -32,6 +32,7 @@ sudo pacman -S --noconfirm --needed firefox obsidian
 
 echo -e "\n ==> CHANGING SHELL \n"
 chsh -s /bin/zsh
+echo $SHELL
 
 echo -e "\n ==> STOWING DOTFILES \n"
 git clone https://github.com/gilpe/dotfiles.git ~/.dotfiles
