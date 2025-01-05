@@ -150,10 +150,11 @@ sudo pacman -Syu
 #Packages install
 gum spin --spinner dot --title "Installing packages..." -- sleep 3
 _installPackages "${pkgs[@]}";
+export PATH="$PATH:~/.dotnet/tools"
 dotnet tool install --global Chickensoft.GodotEnv
 
 gum spin --spinner dot --title "Installing AUR packages..." -- sleep 3
-_installYay()
+_installYay;
 _installPackagesYay "${aur_pkgs[@]}";
 
 
