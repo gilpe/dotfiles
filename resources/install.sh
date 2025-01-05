@@ -1,18 +1,21 @@
 #!/bin/bash
 
+source library.sh
+source packages.sh
+
 #   Script dependencies
-echo -e "\n Installing \033[1m Gum \033[0m to run this awesome script..."
+echo -e "\n Installing \033[1mGum \033[0mto run this awesome script..."
 sudo pacman -S --noconfirm --needed gum
 
 
 #Welcome title
+echo -e
 gum style --faint "Welcome to..."
 gum style \
     --border-foreground 85 \
     --border normal \
 	--align center \
     --width 50 \
-    --margin "1" \
     --padding "1 2" \
 	"$(gum style --bold --foreground 85 "Gilpe")'s package installer and dotfile setter" "for a new workstation"
 
@@ -22,6 +25,7 @@ echo -e "\n A bunch of packages will be downloaded and also the existing configu
 if gum confirm "Are you really sure to go on?" ;then
     :
 else
+    echo -e
     gum style "See $(gum style --bold --foreground 85 "you")!"
     exit
 fi
