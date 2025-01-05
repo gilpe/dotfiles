@@ -1,7 +1,118 @@
 #!/bin/bash
 
-source library.sh
-source packages.sh
+#Packages
+pkgs=(
+    "git"
+    "base-devel" 
+    "stow"
+    "dotnet-sdk"
+    "dotnet-runtime"
+    "hyprland"
+    "waybar"
+    "wofi"
+    "ghostty"
+    "zoxide"
+    "fzf"
+    "htop"
+    "dunst"
+    "yazi"
+    "grim"
+    "slurp"
+    "xdg-desktop-portal-hyprland"
+    "qt5-wayland"
+    "qt6-wayland"
+    "pipewire"
+    "wireplumber"
+    "hyprpaper"
+    "hyprlock"
+    "firefox"
+    "ttf-font-awesome"
+    "ttf-jetbrains-mono-nerd"
+    "neovim"
+    "fastfetch"
+    "gtk4"
+    "obsidian"
+    "github-cli"
+)
+aur_pkgs=(
+    "oh-my-posh"
+    "hypridle"
+    "hyprshot"
+    "rider"
+)
+vm_pkgs=(
+    "virutalbox-guest-utils"
+    "foot"
+)
+
+#Check if param package is installed
+_isInstalled() 
+{
+    package="$1";
+    check="$(sudo pacman -Qs --color always "${package}" | grep "local" | grep "${package} ")";
+    if [ -n "${check}" ] ; then
+        echo 0; #true
+        return;
+    fi;
+    echo 1; #false
+    return;
+}
+
+#Install param packages
+_installPackages() 
+{
+    toInstall=();
+    for pkg; do
+        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
+            echo "${pkg} is already installed.";
+            continue;
+        fi;
+        toInstall+=("${pkg}");
+    done;
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        return;
+    fi;
+    printf "Package not installed:\n%s\n" "${toInstall[@]}";
+    sudo pacman -S --noconfirm --needed "${toInstall[@]}";
+}
+
+#Install param AUR packages
+_installPackagesYay() 
+{
+    toInstall=();
+    for pkg; do
+        if [[ $(_isInstalled "${pkg}") == 0 ]]; then
+            echo ":: ${pkg} is already installed.";
+            continue;
+        fi;
+        toInstall+=("${pkg}");
+    done;
+
+    if [[ "${toInstall[@]}" == "" ]] ; then
+        return;
+    fi;
+
+    yay -S --noconfirm --needed "${toInstall[@]}";
+}
+
+#Install Yay if it's not yet
+_installYay() {
+    if sudo pacman -Qs yay > /dev/null ; then
+        echo "yay is already installed!"
+    else
+        echo "yay is not installed. Will be installed now!"
+        _installPackages "base-devel"
+        SCRIPT=$(realpath "$0")
+        temp_path=$(dirname "$SCRIPT")
+        echo $temp_path
+        git clone https://aur.archlinux.org/yay.git ~/.yay
+        cd ~/.yay
+        makepkg -si --noconfirm
+        cd $temp_path
+        rm ~/.yay -rf
+        echo "yay has been installed successfully."
+    fi
+}
 
 #   Script dependencies
 echo -e "\n Installing \033[1mGum \033[0mto run this awesome script..."
