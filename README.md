@@ -7,6 +7,5 @@ Please, remember that my base system and preferences may not match with yours. T
 ## 🚀 Run
 
 ```console
-sudo pacman -S --noconfirm --needed wget
-wget -O - https://raw.githubusercontent.com/gilpe/dotfiles/main/install.sh | bash
+bash <(curl -s https://raw.githubusercontent.com/gilpe/dotfiles/main/resources/install.sh)
 ```
