@@ -41,7 +41,7 @@ aur_pkgs=(
     "rider"
 )
 vm_pkgs=(
-    "virutalbox-guest-utils"
+    "virtualbox-guest-utils"
     "foot"
 )
 
