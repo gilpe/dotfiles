@@ -150,9 +150,10 @@ sudo pacman -Syu
 #Packages install
 gum spin --spinner dot --title "Installing packages..." -- sleep 3
 _installPackages "${pkgs[@]}";
-export PATH="$PATH:~/.dotnet/tools"
-dotnet tool install --global Chickensoft.GodotEnv
-
+if [[ $(_isInstalled "dotnet-sdk") == 0 ]]; then
+    export PATH="$PATH:~/.dotnet/tools"
+    dotnet tool install --global Chickensoft.GodotEnv
+fi
 gum spin --spinner dot --title "Installing AUR packages..." -- sleep 3
 _installYay;
 _installPackagesYay "${aur_pkgs[@]}";
@@ -168,7 +169,7 @@ fi
 
 #Dotfiles download
 gum spin --spinner dot --title "Downloading configuration dotfiles..." -- sleep 3
-git clone https://github.com/gilpe/dotfiles.git ~/.dotfiles
+git clone https://www.github.com/gilpe/dotfiles.git ~/.dotfiles
 
 
 #Dotfiles stow
