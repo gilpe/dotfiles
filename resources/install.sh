@@ -1,7 +1,11 @@
 #!/bin/bash
 
-#Packages
+#---------------#
+#   Declares    #
+#---------------#
+
 pkgs=(
+    "zsh"
     "git"
     "base-devel" 
     "stow"
@@ -45,7 +49,11 @@ vm_pkgs=(
     "foot"
 )
 
-#Check if param package is installed
+#--------------#
+#   Methods    #
+#--------------#
+
+# Check if param package is installed
 _isInstalled() 
 {
     package="$1";
@@ -53,12 +61,12 @@ _isInstalled()
     if [ -n "${check}" ] ; then
         echo 0; #true
         return;
-    fi;
+    fi
     echo 1; #false
     return;
 }
 
-#Install param packages
+# Install param packages
 _installPackages() 
 {
     toInstall=();
@@ -66,17 +74,17 @@ _installPackages()
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo "${pkg} is already installed.";
             continue;
-        fi;
+        fi
         toInstall+=("${pkg}");
-    done;
+    done
     if [[ "${toInstall[@]}" == "" ]] ; then
         return;
-    fi;
+    fi
     printf "Package not installed:\n%s\n" "${toInstall[@]}";
     sudo pacman -S --noconfirm --needed "${toInstall[@]}";
 }
 
-#Install param AUR packages
+# Install param AUR packages
 _installPackagesYay() 
 {
     toInstall=();
@@ -84,18 +92,18 @@ _installPackagesYay()
         if [[ $(_isInstalled "${pkg}") == 0 ]]; then
             echo ":: ${pkg} is already installed.";
             continue;
-        fi;
+        fi
         toInstall+=("${pkg}");
-    done;
+    done
 
     if [[ "${toInstall[@]}" == "" ]] ; then
         return;
-    fi;
-
+    fi
+    printf "Package not installed:\n%s\n" "${toInstall[@]}";
     yay -S --noconfirm --needed "${toInstall[@]}";
 }
 
-#Install Yay if it's not yet
+# Install Yay if it's not yet
 _installYay() {
     if sudo pacman -Qs yay > /dev/null ; then
         echo "yay is already installed!"
@@ -114,79 +122,83 @@ _installYay() {
     fi
 }
 
-#   Script dependencies
-echo -e "\n Installing \033[1mGum \033[0mto run this awesome script..."
-sudo pacman -S --noconfirm --needed gum
+#-----------#
+#   Main    #
+#-----------#
 
+# Script dependencies intall
+if [[ $(_isInstalled "gum") == 1 ]]; then
+    echo -e "\n Installing \033[1mGum \033[0mto run this awesome script...";
+    sudo pacman -S --noconfirm --needed gum;
+fi
 
-#Welcome title
+# Welcome title display
 echo -e
-gum style --faint "Welcome to..."
+gum style --faint "Welcome to...";
 gum style \
     --border-foreground 85 \
     --border normal \
 	--align center \
     --width 50 \
     --padding "1 2" \
-	"$(gum style --bold --foreground 85 "Gilpe")'s package installer and dotfile setter" "for a new workstation"
+	"$(gum style --bold --foreground 85 "Gilpe")'s package installer and dotfile setter" "for a new workstation";
 
-
-#Continue confirm
-echo -e "\n A bunch of packages will be downloaded and also the existing configuration dotfiles could be overwritten."
+# Continue prompt
+echo -e "\n A bunch of packages will be downloaded and also the existing configuration dotfiles could be overwritten.";
 if gum confirm "Are you really sure to go on?" ;then
     :
 else
-    echo -e
-    gum style "See $(gum style --bold --foreground 85 "you")!"
-    exit
+    echo -e;
+    gum style "See $(gum style --bold --foreground 85 "you")!";
+    exit;
 fi
 
+# System pre-update
+gum spin --spinner dot --title "Updating base..." -- sleep 3;
+sudo pacman -Syu;
 
-#Repository Update
-gum spin --spinner dot --title "Updating base..." -- sleep 3
-sudo pacman -Syu
-
-
-#Packages install
-gum spin --spinner dot --title "Installing packages..." -- sleep 3
+# Packages install
+gum spin --spinner dot --title "Installing packages..." -- sleep 3;
 _installPackages "${pkgs[@]}";
 if [[ $(_isInstalled "dotnet-sdk") == 0 ]]; then
     export PATH="$PATH:~/.dotnet/tools"
     dotnet tool install --global Chickensoft.GodotEnv
 fi
-gum spin --spinner dot --title "Installing AUR packages..." -- sleep 3
+gum spin --spinner dot --title "Installing AUR packages..." -- sleep 3;
 _installYay;
 _installPackagesYay "${aur_pkgs[@]}";
 
-
-#VM additional packages install
+# VM additional packages install
 echo -e "\n Is this a virtual machine."
 if gum confirm "Is this a virtual machine?" ;then
-    gum spin --spinner dot --title "Installing VM additional packages..." -- sleep 3
+    gum spin --spinner dot --title "Installing VM additional packages..." -- sleep 3;
     _installPackages "${vm_pkgs[@]}";
 fi
 
+# Dotfiles download
+gum spin --spinner dot --title "Downloading configuration dotfiles..." -- sleep 3;
+git clone https://www.github.com/gilpe/dotfiles.git ~/.dotfiles;
 
-#Dotfiles download
-gum spin --spinner dot --title "Downloading configuration dotfiles..." -- sleep 3
-git clone https://www.github.com/gilpe/dotfiles.git ~/.dotfiles
-
-
-#Dotfiles stow
+# Dotfiles stow
 echo -e "\n Packages and dotfiles are downloaded!"
-if gum confirm "Do you wanna replace the existing configuration files? $(gum style --faint "(If not you can do it later manually)")" ;then
-    gum spin --spinner dot --title "Stowing dotfiles..." -- sleep 3
-    cd ~/.dotfiles
-    stow .
+if gum confirm "Do you wanna replace all the existing configuration files? $(gum style --faint "(If not, you can do it later manually)")" ;then
+    gum spin --spinner dot --title "Stowing dotfiles..." -- sleep 3;
+    cd ~/.dotfiles;
+    stow */;
 fi
+
+# Change shell
+gum spin --spinner dot --title "Changing shell..." -- sleep 3;
+chsh -l;
+chsh -s /bin/bash;
 
 
 #Reboot
-echo -e "\n A reboot is needed for some changes to take effect."
+echo -e "\n A reboot is needed for some changes to take effect.";
 if gum confirm "Do you want to reboot your system now?" ;then
-    gum style "See $(gum style --bold --foreground 85 "you")!"
-    gum spin --spinner dot --title "Rebooting now..." -- sleep 3
-    systemctl reboot
+    gum style "See $(gum style --bold --foreground 85 "you")!";
+    gum spin --spinner dot --title "Rebooting now..." -- sleep 3;
+    systemctl reboot;
 fi
 
-exit
+exit;
