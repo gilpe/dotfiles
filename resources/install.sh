@@ -47,6 +47,9 @@ aur_pkgs=(
 vm_pkgs=(
     "virtualbox-guest-utils"
     "foot"
+    "libvirt" 
+    "virt-viewer" 
+    "qemu-common"
 )
 
 #--------------#
