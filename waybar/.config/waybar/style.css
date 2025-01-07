@@ -1,7 +1,7 @@
 @import "OneDark.css";
 
 * {
-    font-family: "JetBrainsMono Nerd Font Mono Bold";
+    font-family: "JetBrainsMonoNerdFont";
     font-size: 16px;
     min-height: 0;
     font-weight: bold;
@@ -9,11 +9,10 @@
 
 window#waybar {
     background: transparent;
-    background-color: @white;
+    background-color: @black;
     color: @brightwhite;
     transition-property: background-color;
     transition-duration: 0.1s;
-    border-bottom: 1px solid @overlay1;
 }
 
 #window {
