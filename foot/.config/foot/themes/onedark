@@ -1,0 +1,25 @@
+# OneDark
+[cursor]
+color=111111 cccccc
+
+[colors]
+foreground=abb2bf
+background=1e2127
+regular0=1e2127  # black
+regular1=be5046  # red
+regular2=7a9f60  # green
+regular3=d19a66  # yellow
+regular4=3b84c0  # blue
+regular5=9a52af  # magenta
+regular6=3c909b  # cyan
+regular7=828997  # white
+bright0=5c6370   # bright black
+bright1=e06c75   # bright red
+bright2=98c379   # bright green
+bright3=e5c07b   # bright yellow
+bright4=61afef   # bright blue
+bright5=c678dd   # bright magenta
+bright6=56b6c2   # bright cyan
+bright7=e6efff   # bright white
+# selection-foreground=1e2127
+# selection-background=abb2bf
