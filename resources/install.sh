@@ -39,6 +39,7 @@ pkgs=(
     "github-cli"
 )
 aur_pkgs=(
+    "uwsm"
     "oh-my-posh"
     "hypridle"
     "hyprshot"
@@ -47,9 +48,6 @@ aur_pkgs=(
 vm_pkgs=(
     "virtualbox-guest-utils"
     "foot"
-    "libvirt" 
-    "virt-viewer" 
-    "qemu-common"
 )
 
 #--------------#
