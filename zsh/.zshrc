@@ -1,6 +1,8 @@
 # Launch window manager
-if uwsm check may-start; then
-    exec uwsm start hyprland.desktop
+if pacman -Qi uwsm &> /dev/null; then
+    if uwsm check may-start; then
+        exec uwsm start hyprland.desktop
+    fi
 fi
 
 # Set the directory we want to store zinit and plugins
