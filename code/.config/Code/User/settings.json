@@ -1,4 +1,5 @@
 {
+    "breadcrumbs.enabled": false,
     "debug.console.fontFamily": "JetBrainsMono NF",
     "dotnetAcquisitionExtension.enableTelemetry": false,
     "editor.bracketPairColorization.enabled": false,
@@ -39,7 +40,7 @@
     "window.title": " ",
     "window.titleBarStyle": "custom",
     "window.zoomLevel": 0.2,
-    "workbench.activityBar.location": "top",
+    "workbench.activityBar.location": "default",
     "workbench.colorTheme": "One Dark Pro Darker",
     "workbench.editor.showTabs": "multiple",
     "workbench.iconTheme": "symbols",
