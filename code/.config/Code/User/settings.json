@@ -45,5 +45,12 @@
     "workbench.editor.showTabs": "multiple",
     "workbench.iconTheme": "symbols",
     "workbench.layoutControl.enabled": false,
-    "workbench.productIconTheme": "fluent-icons"
+    "workbench.productIconTheme": "fluent-icons",
+    "git.ignoreRebaseWarning": true,
+    "github.copilot.enable": {
+        "*": true,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false
+    }
 }
