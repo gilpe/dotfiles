@@ -67,5 +67,4 @@ eval "$(zoxide init --cmd cd zsh)"
 
 export PATH="${PATH}:${HOME}/.dotnet/tools"
 export PATH="${PATH}:${HOME}/.config/godotenv/godot/bin"
-
 export GODOT="${HOME}/.config/godotenv/godot/bin/godot"

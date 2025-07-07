@@ -39,7 +39,7 @@
     "window.restoreFullscreen": true,
     "window.title": " ",
     "window.titleBarStyle": "custom",
-    "window.zoomLevel": 0.2,
+    "window.zoomLevel": 1,
     "workbench.activityBar.location": "default",
     "workbench.colorTheme": "One Dark Pro Darker",
     "workbench.editor.showTabs": "multiple",
