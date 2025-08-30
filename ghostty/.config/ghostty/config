@@ -5,7 +5,7 @@ cursor-style-blink = false
 mouse-hide-while-typing = true
 window-padding-x = 4
 window-padding-y = 4
-window-decoration = false
+maximize
 bold-is-bright = true
 selection-invert-fg-bg
 shell-integration-features = no-cursor, sudo, no-title
