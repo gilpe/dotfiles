@@ -1,10 +1,3 @@
-# Launch window manager
-if pacman -Qi uwsm &> /dev/null; then
-    if uwsm check may-start; then
-        exec uwsm start hyprland.desktop
-    fi
-fi
-
 # Set the directory we want to store zinit and plugins
 ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
 
@@ -31,11 +24,10 @@ zinit snippet OMZP::command-not-found
 
 # Load completions
 autoload -Uz compinit && compinit
-
 zinit cdreplay -q
 
 #Custom prompt
-eval "$(oh-my-posh init zsh --config $HOME/.config/ohmyposh/ohmyposh.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
 
 # History
 HISTSIZE=5000

@@ -1,13 +1,13 @@
-theme = light:OneHalfLight,dark:onedark
+theme = light:onedark-light,dark:onedark-dark
 font-family = "JetBrainsMono Nerd Font Mono"
-font-size = 12
+font-size = 11
 cursor-style = block
 cursor-style-blink = false
 mouse-hide-while-typing = true
 window-padding-x = 4
 window-padding-y = 4
 window-decoration = auto
-window-theme = ghostty
+window-theme = auto
 maximize
 bold-is-bright = true
 selection-invert-fg-bg
