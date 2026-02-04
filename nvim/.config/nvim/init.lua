@@ -1,0 +1,5 @@
+require('config.options')
+require('config.plugins')
+require('config.keybinds')
+require('config.colors')
+require('config.lightline')
