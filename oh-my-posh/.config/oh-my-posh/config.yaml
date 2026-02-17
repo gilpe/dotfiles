@@ -1,0 +1,52 @@
+version: 4
+final_space: true
+console_title_template: '{{ .Shell }} in {{ .Folder }}'
+blocks:
+    - type: prompt
+      alignment: left
+      segments:
+        - type: path 
+          template: '{{ .Path }}'
+          foreground: blue
+          background: transparent
+          style: plain
+        - type: git
+          template: ' {{ .HEAD }}{{ if or (.Working.Changed) (.Staging.Changed) }}*{{ end }} <cyan>{{ if gt .Behind 0 }}⇣{{ end }}{{ if gt .Ahead 0 }}⇡{{ end }}</>'
+          foreground: grey
+          background: transparent
+          style: plain
+      newline: true
+    - type: prompt
+      alignment: left
+      segments:
+        - type: text
+          template: ❯
+          background: transparent
+          foreground_templates:
+            - '{{if gt .Code 0}}red{{end}}'
+            - '{{if eq .Code 0}}magenta{{end}}'
+          style: plain
+      newline: true
+    - type: rprompt
+      overflow: hidden
+      segments:
+        - type: executiontime 
+          template: '{{ .FormattedMs }}'
+          foreground: yellow
+          background: transparent
+          style: plain
+transient_prompt:
+    template: '❯ '
+    background: transparent
+    foreground_templates:
+        - '{{if gt .Code 0}}red{{end}}'
+        - '{{if eq .Code 0}}magenta{{end}}'
+secondary_prompt:
+    template: '❯❯ '
+    foreground: magenta
+    background: transparent
+upgrade:
+    source: github
+    interval: 168h
+    auto: true
+    notice: true

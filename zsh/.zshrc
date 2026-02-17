@@ -16,18 +16,12 @@ zinit light zsh-users/zsh-completions
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
-# Add in snippets
-zinit snippet OMZP::git
-zinit snippet OMZP::sudo
-zinit snippet OMZP::archlinux
-zinit snippet OMZP::command-not-found
-
 # Load completions
 autoload -Uz compinit && compinit
 zinit cdreplay -q
 
 #Custom prompt
-eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.toml)"
+eval "$(oh-my-posh init zsh --config $HOME/.config/oh-my-posh/config.yaml)"
 
 # History
 HISTSIZE=5000
@@ -57,6 +51,7 @@ alias c='clear'
 eval "$(fzf --zsh)"
 eval "$(zoxide init --cmd cd zsh)"
 
+# Variables
 export PATH="${PATH}:${HOME}/.dotnet/tools"
 export PATH="${PATH}:${HOME}/.config/godotenv/godot/bin"
 export GODOT="${HOME}/.config/godotenv/godot/bin/godot"
