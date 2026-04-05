@@ -1,8 +1,7 @@
 # OneDark
-[cursor]
-color=111111 cccccc
 
-[colors]
+[colors-dark]
+cursor=111111 cccccc
 foreground=abb2bf
 background=1e2127
 regular0=1e2127  # black
