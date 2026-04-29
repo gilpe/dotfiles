@@ -1,15 +1,20 @@
---Requires vim-plug. To install execute this:
---sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+-- Plugin installer translated from plugins.vim
+local fn = vim.fn
+local split = vim.split
+local data_dir = fn.stdpath('data') .. '/plugged'
 
-local vim = vim
-local Plug = vim.fn['plug#']
+local function ensure(repo)
+    local parts = split(repo, '/')
+    local name = parts[#parts]
+    local path = data_dir .. '/' .. name
+    if fn.isdirectory(path) == 0 then
+        if fn.isdirectory(data_dir) == 0 then
+            fn.mkdir(data_dir, 'p')
+        end
+        fn.system({ 'git', 'clone', '--depth=1', 'https://github.com/' .. repo, path })
+    end
+    vim.opt.rtp:append(path)
+end
 
-vim.call('plug#begin')
-
-Plug('jeffkreeftmeijer/vim-dim')  --theme
-Plug('nvim-lualine/lualine.nvim') --statusline
-
-vim.call('plug#end')
-
--- Color scheme
---vim.cmd('silent! colorscheme onedark')
+ensure('joshdick/onedark.vim')
+ensure('itchyny/lightline.vim')
